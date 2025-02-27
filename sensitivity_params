@@ -1,0 +1,23 @@
+import numpy as np
+from math import *
+from reproductive_number import *
+
+#Sensitivity of parameters:
+S_alphaC = (alpha_c / r_0)* ((S_i*(-1)*(2*S_p*u_p - Beta*lambda_p)) / (S_p*S_c*lambda_i*(1+alpha_c)**2))
+
+S_beta = (Beta / r_0)*((lambda_p*S_i)/(S_p*S_c*(1+alpha_c)*lambda_i))
+
+S_deltaC = (S_c / r_0)*(-1)*(S_i*(u_c*(1-alpha_c)*S_p+Beta*lambda_p)/(((S_c)**2)*(1+alpha_c)*lambda_i*S_p))
+
+S_deltaI = (S_i / r_0)*((u_c*(1-alpha_c)*S_p+Beta*lambda_p)/(S_c*S_p*(1+alpha_c)*lambda_i))
+
+S_deltaP = (S_p / r_0)*(-1)*((Beta*lambda_p*S_i) / ((S_c*(S_p)**2) *(1+alpha_c)*lambda_i))
+
+S_lambdaI = (lambda_i / r_0)*(-1)*S_i*((u_c*(1-alpha_c)+Beta*(lambda_p / S_p))/(S_c*(1+alpha_c)*((lambda_i)**2)))
+
+S_lambdaP = (lambda_p / r_0)*(Beta*S_i/S_p*S_c*(1+alpha_c)*lambda_i)
+
+S_muC = (u_c/r_0)*((S_i*(1-alpha_c))/(S_c*(1+alpha_c)*lambda_i))
+
+print("S_alphaC: ",S_alphaC ,"\nS_beta: ",S_beta,"\nS_deltaC: ",S_deltaC, "\nS_deltaI: ", S_deltaI, "\nS_deltaP: ", S_deltaP, "\nS_lambdaI: ", S_lambdaI, "\nS_lambdaP: ", S_lambdaP,"\nS_muC: ",S_muC )
+
