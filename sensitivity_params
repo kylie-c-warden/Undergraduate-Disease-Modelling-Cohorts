@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 #from pylatex import Math
 
 #Sensitivity of parameters:
-S_alphaC = (alpha_c / r_0)* ((S_i*(-1)*(2*S_p*u_p - Beta*lambda_p)) / (S_p*S_c*lambda_i*(1+alpha_c)**2))
+S_alphaC = (alpha_c / r_0)* ((S_i*(-1)*(2*S_p*u_c - Beta*lambda_p)) / (S_p*S_c*lambda_i*(1+alpha_c)**2))
 
 S_beta = (Beta / r_0)*((lambda_p*S_i)/(S_p*S_c*(1+alpha_c)*lambda_i))
 
