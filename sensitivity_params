@@ -1,6 +1,8 @@
 import numpy as np
 from math import *
 from reproductive_number import *
+import matplotlib.pyplot as plt
+#from pylatex import Math
 
 #Sensitivity of parameters:
 S_alphaC = (alpha_c / r_0)* ((S_i*(-1)*(2*S_p*u_p - Beta*lambda_p)) / (S_p*S_c*lambda_i*(1+alpha_c)**2))
@@ -19,5 +21,11 @@ S_lambdaP = (lambda_p / r_0)*(Beta*S_i/S_p*S_c*(1+alpha_c)*lambda_i)
 
 S_muC = (u_c/r_0)*((S_i*(1-alpha_c))/(S_c*(1+alpha_c)*lambda_i))
 
-print("S_alphaC: ",S_alphaC ,"\nS_beta: ",S_beta,"\nS_deltaC: ",S_deltaC, "\nS_deltaI: ", S_deltaI, "\nS_deltaP: ", S_deltaP, "\nS_lambdaI: ", S_lambdaI, "\nS_lambdaP: ", S_lambdaP,"\nS_muC: ",S_muC )
-
+params = dict(alphaC = S_alphaC, beta = S_beta, deltaC = S_deltaC, deltaI = S_deltaI, deltaP = S_deltaP, lambdaI = S_lambdaI, lambdaP = S_lambdaP, muC = S_muC)
+#$\mathrm{alpha_C}$
+x = params.keys()
+y = params.values()
+#print("S_alphaC: ",S_alphaC ,"\nS_beta: ",S_beta,"\nS_deltaC: ",S_deltaC, "\nS_deltaI: ", S_deltaI, "\nS_deltaP: ", S_deltaP, "\nS_lambdaI: ", S_lambdaI, "\nS_lambdaP: ", S_lambdaP,"\nS_muC: ",S_muC )
+print(params)
+plt.bar(x, y, width=.5)
+plt.show()
