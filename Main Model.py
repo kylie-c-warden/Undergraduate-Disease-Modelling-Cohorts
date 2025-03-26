@@ -59,7 +59,7 @@ I = x[:,3]
 
 
 # # Plotting each equation in a separate subplot with a log y-axis
-fig, axis = plt.subplots(2, 3, figsize=(14, 7))
+fig, axis = plt.subplots(3, 2, figsize=(7, 7))
 
 # Plot P(t)
 axis[0, 0].plot(t, P, color='blue')
@@ -95,10 +95,10 @@ axis[1,1].grid()
 #sensitivity
 x = params.keys()
 y = params.values()
-axis[0,2].bar(x, y, width=.5)
+axis[2,0].bar(x, y, width=.5)
 
 #make last spot empty
-axis[1,2].axis("off")
+axis[2,1].axis("off")
 
 # Adjust layout for better spacing
 plt.tight_layout()
