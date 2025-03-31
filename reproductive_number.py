@@ -1,7 +1,3 @@
-#import matplotlib.pyplot as plt
-#from scipy.integrate import odeint
-import numpy as np
-
 alpha_c = 0    #keep curcumin at a range of 0.1 to 0.2
 
 Beta = 0.0000012     # 0.00012   # 0.0001597
