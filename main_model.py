@@ -4,8 +4,6 @@ from scipy.integrate import odeint
 import numpy as np
 from reproductive_number import *
 
-
-
 def odes (x, t): 
 
     A = x[0]
@@ -38,16 +36,24 @@ S_lambdaP = (lambda_p / r_0)*(Beta*S_i/S_p*S_c*(1+alpha_c)*lambda_i)
 
 S_muC = (u_c/r_0)*((S_i*(1-alpha_c))/(S_c*(1+alpha_c)*lambda_i))
 
+#gather all sensitivities
 params = dict(aC = S_alphaC, B = S_beta, dC = S_deltaC, dI = S_deltaI, dP = S_deltaP, li = S_lambdaI, lP = S_lambdaP, mC = S_muC)
-#print(params)
-#  initial conditions 
-# x_0 = [a_0, p_0, c_0, i_0] 
+
+
+#cancer data from tsc
+numCancerPercent = [86.852974,84.4924812,105.662594,12.5704887,48.9074248,66.0244361,6.93139098,12.3237782,27.2321429,14.0666667,33.4555556,65.6222222,18.8111111,28.6,25.2888889,100,6.1325188]
+#scaling from percent to #cells
+scaledCancer = numCancerPercent*400
+
+#3 different kinds of means of cancer data
+cancerPercentMeans = [31.38,42.4,22.0]*400
+
 
 x_0 = [4000, 1.75e6, 40000, 10e6] 
 
 
 print(odes(x_0,0))
-tf = 100
+tf = 120
 t = np.linspace(0,tf,1000)
 x = odeint(odes, x_0, t)
 
@@ -79,11 +85,18 @@ axis[0, 1].grid()
 # Plot C(t)
 axis[1, 0].plot(t, C, color='red')
 axis[1, 0].set_title("$C(t)$ Graph")
-axis[1, 0].plot(120,7000, 'ro')
 axis[1, 0].set_yscale('log')
 axis[1, 0].set_xlabel('$t$')
 axis[1, 0].set_ylabel('$C(t)$')
 axis[1, 0].grid()
+#point estimate
+axis[1, 0].plot(120,7000, '*b')
+#data
+for i in scaledCancer:
+    axis[1,0].plot(120,i,'xk')
+#means
+for j in cancerPercentMeans:
+    axis[1,0].plot(120,j,".c")
 
 # Turn off the last empty subplot
 axis[1,1].plot(t, I, color='purple')

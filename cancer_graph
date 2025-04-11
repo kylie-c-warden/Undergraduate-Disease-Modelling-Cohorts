@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+from main_model import C,t
+
+
+#cancer data from tsc
+numCancerPercent = [86.852974,84.4924812,105.662594,12.5704887,48.9074248,66.0244361,6.93139098,12.3237782,27.2321429,14.0666667,33.4555556,65.6222222,18.8111111,28.6,25.2888889,100,6.1325188]
+#scaling from percent to #cells
+scaledCancer = numCancerPercent*400
+
+#3 different kinds of means of cancer data
+cancerPercentMeans = [31.38,42.4,22.0]*400
+
+plt.figure(figsize=(9,7))
+plt.plot(t, C,color = 'red')
+plt.title("$C(t)$ Graph")
+plt.xlabel('$t$', fontsize=12)
+plt.ylabel('$C(t)$', fontsize=12)
+plt.yscale('log')
+plt.grid()
+
+plt.plot(120,7000, '*b')
+for i in scaledCancer:
+    plt.plot(120,i,'xk')
+
+for j in cancerPercentMeans:
+    plt.plot(120,j,".c")
+
+plt.show()
