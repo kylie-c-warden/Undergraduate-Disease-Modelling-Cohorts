@@ -1,6 +1,11 @@
 import matplotlib.pyplot as plt
 from main_model import C,t
 
+legend_text = (
+"Legend\n"
+"x - data via MTT Assay\n"
+"\u2022 - Geometric, Harmonic, and Arithmetic Means"
+)
 
 #cancer data from tsc
 numCancerPercent = [86.852974,84.4924812,105.662594,12.5704887,48.9074248,66.0244361,6.93139098,12.3237782,27.2321429,14.0666667,33.4555556,65.6222222,18.8111111,28.6,25.2888889,100,6.1325188]
@@ -18,11 +23,17 @@ plt.ylabel('$C(t)$', fontsize=12)
 plt.yscale('log')
 plt.grid()
 
-plt.plot(120,7000, '*b')
 for i in scaledCancer:
     plt.plot(120,i,'xk')
 
 for j in cancerPercentMeans:
     plt.plot(120,j,".c")
+
+plt.text(60,10**(-15), legend_text,
+
+fontsize=10,
+verticalalignment='top',
+horizontalalignment='left',
+bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='black'))
 
 plt.show()

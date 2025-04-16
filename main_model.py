@@ -89,9 +89,8 @@ axis[1, 0].set_yscale('log')
 axis[1, 0].set_xlabel('$t$')
 axis[1, 0].set_ylabel('$C(t)$')
 axis[1, 0].grid()
-#point estimate
-axis[1, 0].plot(120,7000, '*b')
-#data
+
+#mtt data
 for i in scaledCancer:
     axis[1,0].plot(120,i,'xk')
 #means
