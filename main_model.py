@@ -90,14 +90,14 @@ axis[1, 0].set_xlabel('$t$')
 axis[1, 0].set_ylabel('$C(t)$')
 axis[1, 0].grid()
 
-#mtt data
+#plot mtt data
 for i in scaledCancer:
     axis[1,0].plot(120,i,'xk')
-#means
+#plot means
 for j in cancerPercentMeans:
     axis[1,0].plot(120,j,".c")
 
-# Turn off the last empty subplot
+# Plot I(t)
 axis[1,1].plot(t, I, color='purple')
 axis[1,1].set_title('$I(t)$ Graph')
 axis[1,1].set_yscale('log')
@@ -105,7 +105,7 @@ axis[1,1].set_xlabel('$t$')
 axis[1,1].set_ylabel('$I(t)$')
 axis[1,1].grid()
 
-#sensitivity
+#plot sensitivity
 x = params.keys()
 y = params.values()
 axis[2,0].bar(x, y, width=.5)

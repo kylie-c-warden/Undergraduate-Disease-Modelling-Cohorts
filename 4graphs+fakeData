@@ -27,6 +27,7 @@ axis[1, 0].set_xlabel('$t$')
 axis[1, 0].set_ylabel('$C(t)$')
 axis[1, 0].grid()
 
+#write up legend content for cancer graph
 legend_text = (
 "Legend\n"
 "x - data via MTT Assay\n"
@@ -41,19 +42,23 @@ scaledCancer = numCancerPercent*400
 #3 different kinds of means of cancer data
 cancerPercentMeans = [31.38,42.4,22.0]*400
 
+#plot mtt data
 for i in scaledCancer:
     axis[1, 0].plot(120,i,'xk')
 
+#plot means
 for j in cancerPercentMeans:
     axis[1, 0].plot(120,j,".c")
 
 #fake data
-fake_x = [20,40,60,80,100,120]
-fake_y = [40000,40000,20000,5000,8000,12500]
+fake_x = [5,20,40,60,80,100,120]
+fake_y = [40000,40000,40000,20000,5000,8000,12500]
 
+#plot fake data
 for k in fake_x,fake_y:
     axis[1,0].plot(fake_x,fake_y,'om')
 
+#add legend to graph
 axis[1, 0].text(20,10**(-12), legend_text,
 
 fontsize=8,
@@ -61,6 +66,7 @@ verticalalignment='top',
 horizontalalignment='left',
 bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='black'))
 
+#Plot I(t)
 axis[1,1].plot(t, I, color='purple')
 axis[1,1].set_title('$I(t)$ Graph')
 axis[1,1].set_yscale('log')

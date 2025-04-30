@@ -15,6 +15,7 @@ scaledCancer = numCancerPercent*400
 #3 different kinds of means of cancer data
 cancerPercentMeans = [31.38,42.4,22.0]*400
 
+#plotting C(t)
 plt.figure(figsize=(9,7))
 plt.plot(t, C,color = 'red')
 plt.title("$C(t)$ Graph")
@@ -23,14 +24,16 @@ plt.ylabel('$C(t)$', fontsize=12)
 plt.yscale('log')
 plt.grid()
 
+#plot mtt data
 for i in scaledCancer:
     plt.plot(120,i,'xk')
 
+#plot means
 for j in cancerPercentMeans:
     plt.plot(120,j,".c")
 
+#add legend
 plt.text(60,10**(-15), legend_text,
-
 fontsize=10,
 verticalalignment='top',
 horizontalalignment='left',
